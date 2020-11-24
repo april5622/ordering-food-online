@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import "../css/Navigation.css";
 
-function Navigation() {
+const Navigation = props => {
     return (
-        <div>
-            <h2>Navigation</h2>
-        </div>
+        <div className="navigation">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/cart">
+                {/* Cart <span>{cart.length}</span> */}
+            </NavLink>
+		</div>
     )
 }
 

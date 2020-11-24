@@ -34,7 +34,6 @@ Show what the library does as concisely as possible, developers should be able t
 Provide step by step series of examples and explanations about how to get a development env running.
 
 ## API Reference
-
 Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
 ## Tests
