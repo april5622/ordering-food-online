@@ -1,16 +1,25 @@
+import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Homepage from './components/Homepage';
 import Navigation from './components/Navigation';
 
 
+
 function App() {
   return (
     <div className="App">
-     <h1>hello</h1>
-     <Navigation/>
-     <Homepage/>
-    
-    </div>
+					<Navigation  />
+
+					{/* Routes */}
+					<Route exact path="/">
+						<Homepage />
+					</Route>
+
+					{/* <Route path="/cart">
+						<ShoppingCart cart={cart} />
+					</Route> */}
+		</div>
   );
 }
 
