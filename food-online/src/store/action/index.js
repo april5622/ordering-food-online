@@ -7,7 +7,7 @@ export const getRestaurants = () => {
     dispatch({type: FETCH_RESTAURANTS_START});
 
     axios
-        .get()
+        .get("")
         .then(res => {
             console.log("res", res);
             dispatch({type: FETCH_RESTAURANTS_START, payload: res.data});
