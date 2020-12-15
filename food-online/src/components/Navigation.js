@@ -6,7 +6,8 @@ const Navigation = (props) => {
   return (
     <div className="navigation">
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/cart">{/* Cart <span>{cart.length}</span> */}</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/cart">Cart{/* Cart <span>{cart.length}</span> */}</NavLink>
     </div>
   );
 };
