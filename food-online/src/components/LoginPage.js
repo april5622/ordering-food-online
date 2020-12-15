@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import "../css/LoginPage.css";
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
-//import {Link} from "react-router-dom;"
+import { Link, useHistory } from 'react-router-dom';
+
 
 
 function LoginPage(props) {
     let history = useHistory();
     
     const [userInfo, setUserInfo] = useState({
-        email: "",
+        username: "",
         password: ""
     });
 
@@ -45,12 +45,12 @@ function LoginPage(props) {
         <div className="login-container">
             <h3>LOGIN HERE</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="Email">
-                    <input className="email-input"
+                <label htmlFor="username">
+                    <input className="username-input"
                         type="text"
-                        placeholder="Email"
-                        name="email"
-                        value={userInfo.email}
+                        placeholder="Username"
+                        name="username"
+                        value={userInfo.username}
                         onChange={handleChange}
                     />
                 </label>
@@ -65,10 +65,10 @@ function LoginPage(props) {
                     />
                 </label>
 
-                <button type="submit">Login</button>
+                <button type="submit" onSubmit={handleSubmit}>Login</button>
                 
-
-                {/* <Link to="/register">Register</Link> */}
+                <Link className="registerbutton" to="/register">Register</Link>
+                
             </form>   
         </div>
     )
