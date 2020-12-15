@@ -13,5 +13,17 @@ label{
     margin: 0.5%;
 }
 
+button {
+    margin-left: 1%;
+    margin-right: 1%;
+    border: solid black;
+    padding: 1%;
+}
+
+.registerbutton{
+    color: black;
+    border: solid black;
+    padding: 1%;
+}
 
     
