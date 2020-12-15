@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
 import "../css/Homepage.css";
-import { connect } from "react-redux";
-import { getRestaurants } from "../store/action/index";
+//import { connect } from "react-redux";
+//import { getRestaurants } from "../store/action/index";
 //import RestaurantPage from "./RestaurantPage";
 
 
 const Homepage = (props, getRestaurants, isFetching, error) => {
 
-  useEffect(() => {
-    props.getRestaurants();
-  }, [getRestaurants]);
+  // useEffect(() => {
+  //   props.getRestaurants();
+  // }, [getRestaurants]);
 
-  if (isFetching) {
-    return <h2>Fetching Restaurants</h2>;
-  }
+  // if (isFetching) {
+  //   return <h2>Fetching Restaurants</h2>;
+  // }
 
-  if (error) {
-    return <h2>{error}</h2>;
-  }
+  // if (error) {
+  //   return <h2>{error}</h2>;
+  // }
 
   return (
     <div className="homepage">
@@ -27,12 +27,14 @@ const Homepage = (props, getRestaurants, isFetching, error) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    restaurants: state.restaurants,
-    isFetching: state.isFetching,
-    error: state.error
-  }
-}
+// const mapDispatchToProps = state => {
+//   return {
+//     restaurants: state.restaurants,
+//     isFetching: state.isFetching,
+//     error: state.error
+//   }
+// }
 
-export default connect(mapStateToProps,{getRestaurants})(Homepage);
+//export default connect(mapDispatchToProps,{getRestaurants})(Homepage);
+
+export default Homepage;
