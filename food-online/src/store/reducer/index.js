@@ -2,7 +2,8 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   FETCH_RESTAURANTS_START, 
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
 
 } from "../action/index";
 
@@ -10,6 +11,7 @@ const initialState = {
   restaurants: [],
   isFetching: false,
   errors: "",
+  loggedIn: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -18,16 +20,24 @@ export const reducer = (state = initialState, action) => {
     case LOGIN_START:
       return {
         ...state,
-        loggedIn: true,
+        loggedIn: false,
         error: "",
       };
 
     case LOGIN_SUCCESS: 
       return {
         ...state,
-        loggedIn: false,
+        loggedIn: true,
         error: "",
       };
+
+    case LOGIN_FAIL:
+      return{
+        ...state,
+        loggedIn: false,
+        error: action.payload
+
+      }
 
     case FETCH_RESTAURANTS_START:
       return {
