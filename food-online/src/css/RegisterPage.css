@@ -1,0 +1,16 @@
+.register-container{
+    width: 100%;
+    height: auto;
+}
+
+.register-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button{
+    margin-top: 1%;
+}
+

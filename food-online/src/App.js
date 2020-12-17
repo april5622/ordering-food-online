@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage";
 import LoginPage from "./components/LoginPage";
 import Navigation from "./components/Navigation";
 import ShoppingCart from "./components/ShoppingCart";
+import RegisterPage  from "./components/RegisterPage";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
 
       <Route path="/login">
         <LoginPage/>
+      </Route>
+
+      <Route path="/register">
+        <RegisterPage/>
       </Route>
 
     </div>

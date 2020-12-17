@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import "../css/LoginPage.css";
 import axios from "axios";
+//import { login } from "../store/action"; 
 import { Link, useHistory } from 'react-router-dom';
+//import { connect } from 'react-redux';
 
 
 
@@ -10,7 +12,7 @@ function LoginPage(props) {
     
     const [userInfo, setUserInfo] = useState({
         username: "",
-        password: ""
+        password: "",
     });
 
     const handleChange = e => {
@@ -26,18 +28,18 @@ function LoginPage(props) {
         const loginData = {
             ...userInfo
         };
-        console.log(loginData)
+        console.log("LOGINDATA",loginData)
         axios
-            .post()
+            .post('https://food-online-be.herokuapp.com/auth/login', loginData)
             .then(res => {
-                console.log(res.data)
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem("userId", res.data.id);
-                history.push(`/cart/${localStorage.getItem('userId')}`)
+                history.push('/')
+                setUserInfo(userInfo)
+                console.log("RES DATA",res.data)
             })
             .catch(err => {
                 console.log(err)
-            });    
+            }); 
     };
 
 
@@ -74,6 +76,16 @@ function LoginPage(props) {
     )
 };
 
+// const mapStateToProps = state => {
+//     return{
+//         userInfo: state.userInfo
+
+//     }
+// }
+
+// export default connect(mapStateToProps, {
+//     login
+// })(LoginPage);
 
 export default LoginPage;
 
