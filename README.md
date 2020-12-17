@@ -1,8 +1,6 @@
-# ordering-food-online
+## ordering-food-online
 
-## Project title
-
-A little info about your project and/ or overview that explains **what** the project is about.
+The frontend repository to my food ordering application.
 
 ## Motivation
 
@@ -30,6 +28,7 @@ Include logo/demo screenshot etc.
 <b>Built with</b>
 
 - [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
 
 ## Features
 
@@ -57,16 +56,18 @@ If people like your project they’ll want to learn how they can use it. To do s
 
 ## Contribute
 
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated.**
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## Credits
 
 Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project.
 
-#### Anything else that seems useful
-
 ## License
-
-A short snippet describing the license (MIT, Apache etc)
 
 MIT © [April Ma]()
