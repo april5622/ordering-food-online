@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import "../css/LoginPage.css";
 import axios from "axios";
-//import { login } from "../store/action"; 
 import { Link, useHistory } from 'react-router-dom';
-//import { connect } from 'react-redux';
-
 
 
 function LoginPage(props) {
