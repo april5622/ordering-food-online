@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import "../css/Homepage.css";
 //import { connect } from "react-redux";
 //import { getRestaurants } from "../store/action/index";
-//import RestaurantPage from "./RestaurantPage";
+import RestaurantPage from "./Restaurants/RestaurantPage";
 
 
-const Homepage = (props, getRestaurants, isFetching, error) => {
+// const Homepage = (props, getRestaurants, isFetching, error) => {
+const Homepage = () => {
 
   // useEffect(() => {
   //   props.getRestaurants();
@@ -22,6 +23,7 @@ const Homepage = (props, getRestaurants, isFetching, error) => {
   return (
     <div className="homepage">
       <h2>Homepage</h2>
+      <RestaurantPage/>
 
     </div>
   );
