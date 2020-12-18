@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from  "axios";
+import { useHistory } from "react-router-dom";
 import "../css/RegisterPage.css";
 
 function RegisterPage() {
+    let history = useHistory();
+    
+    const [userInfo, setUserInfo] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        username: "",
+        password: "",
+    });
+
     const handleChange = e =>{
+        const data = {
+            ...userInfo,
+            [e.target.name]: e.target.value
+        };
+        setUserInfo(data);
+    };
 
-    }
     const handleSubmit = e => {
-
-    }
+        e.preventDefailt();
+        const registerData = {
+            ...userInfo
+        };
+        console.log("REGISTERDATA", registerData)
+        axios
+            .post('https://food-online-be.herokuapp.com/auth/register', registerData)
+            .then(res => {
+                localStorage.setItem("values", res.data.registerData);
+                history.push('/login')
+                setUserInfo(userInfo)
+                console.log("RES DATA",res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            });
+    };
 
     return (
         <div className="register-container">
@@ -18,6 +50,7 @@ function RegisterPage() {
                         placeholder="First Name"
                         type="text"
                         name="firstname"
+                        value={userInfo.firstname}
                         onChange={handleChange}
                     />
                 </label>
@@ -27,6 +60,7 @@ function RegisterPage() {
                         placeholder="Last Name"
                         type="text"
                         name="lastname"
+                        value={userInfo.lastname}
                         onChange={handleChange}
                     />
                 </label>
@@ -36,7 +70,7 @@ function RegisterPage() {
                         type="text"
                         placeholder="Email"
                         name="email"
-                        //value={userInfo.email}
+                        value={userInfo.email}
                         onChange={handleChange}
                     />
                 </label>
@@ -46,6 +80,7 @@ function RegisterPage() {
                         placeholder="Username"
                         type="text"
                         name="username"
+                        value={userInfo.username}
                         onChange={handleChange}
                     />
                 </label>
@@ -55,7 +90,7 @@ function RegisterPage() {
                         type="text"
                         placeholder="Password"
                         name="password"
-                        //value={userInfo.password}
+                        value={userInfo.password}
                         onChange={handleChange}   
                     />
                 </label>
