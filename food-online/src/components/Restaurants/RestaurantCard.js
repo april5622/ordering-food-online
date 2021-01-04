@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const RestaurantCard = (props) => {
     return (
         <div>
-            <h3>{props.restaurants.name}</h3>
-            <p>{props.restaurants.description}</p>
+            <h3>{props.restaurant.name}</h3>
+            <p>{props.restaurant.description}</p>
             
         </div>
     )
