@@ -23,7 +23,6 @@ export const login = credentials => dispatch => {
 }
 
 
-
 export const getRestaurants = () =>  dispatch => {
   dispatch({ type: FETCH_RESTAURANTS_START });
   axiosWithAuth()

@@ -52,7 +52,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        restauranst: action.payload
+        restaurants: action.payload
       };
 
     case FETCH_RESTAURANTS_FAIL:
