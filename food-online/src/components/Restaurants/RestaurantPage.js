@@ -8,7 +8,7 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
 
   useEffect(()=> {
     props.getRestaurants();
- }, []);
+ }, [getRestaurants]);
 
  if (isFetching) {
      return <h2>Fetching Restaurants</h2>
@@ -20,8 +20,7 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
 
 
   return (
-    <div>
-      <h3>Restaurant Page</h3>
+    <div className="restaurant-page">
         {props.restaurants.map(restaurant => {
           return <RestaurantCard 
             key={restaurant.id} restaurant={restaurant}/>
