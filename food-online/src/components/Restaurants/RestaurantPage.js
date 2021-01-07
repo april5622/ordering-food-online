@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useHistory } from "react";
 import { getRestaurants } from "../../store/action/index";
 import RestaurantCard from "./RestaurantCard";
 import { connect } from "react-redux";
 import "../../css/Restaurants.css";
 
 const RestaurantPage = (props, getRestaurants, isFetching, error) => {
+  let history = useHistory();
 
   useEffect(()=> {
     props.getRestaurants();
@@ -16,6 +17,14 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
 
  if (error) {
      return <h2>{error}</h2>
+ }
+
+
+ const HandleClick = e => {
+   e.preventDefault();
+   history.push('/menu')
+
+
  }
 
 
