@@ -1,11 +1,12 @@
-import React, { useEffect, useHistory } from "react";
+import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import { getRestaurants } from "../../store/action/index";
 import RestaurantCard from "./RestaurantCard";
 import { connect } from "react-redux";
 import "../../css/Restaurants.css";
 
 const RestaurantPage = (props, getRestaurants, isFetching, error) => {
-  let history = useHistory();
+  const history = useHistory();
 
   useEffect(()=> {
     props.getRestaurants();
@@ -19,21 +20,22 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
      return <h2>{error}</h2>
  }
 
-
- const HandleClick = e => {
+// /restaurant/:id/menu
+ const handleClick = e => {
    e.preventDefault();
-   history.push('/menu')
-
+   history.push('/login')
 
  }
 
 
   return (
-    <div className="restaurant-page">
-        {props.restaurants.map(restaurant => {
-          return <RestaurantCard 
-            key={restaurant.id} restaurant={restaurant}/>
-        })}
+    <div>
+      <div className="restaurant-page" onClick={handleClick}>
+          {props.restaurants.map(restaurant => {
+            return <RestaurantCard 
+              key={restaurant.id} restaurant={restaurant}/>
+          })}
+      </div>
     </div>
   );
 }

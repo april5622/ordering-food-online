@@ -17,9 +17,15 @@ function App() {
         <ShoppingCart />
       </PrivateRoute>
 
+     {/* restaurant page */}
       <Route exact path="/">
         <Homepage />
       </Route>
+
+      {/* menu for that specific restaurant */}
+      {/* <Route path="restaurant/:id/menu">
+        <MenuPage/>
+      </Route> */}
 
       <Route path="/login">
         <LoginPage/>
