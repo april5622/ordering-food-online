@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import { getRestaurants } from "../../store/action/index";
 import RestaurantCard from "./RestaurantCard";
 import { connect } from "react-redux";
 import "../../css/Restaurants.css";
 
 const RestaurantPage = (props, getRestaurants, isFetching, error) => {
+  const history = useHistory();
 
   useEffect(()=> {
     props.getRestaurants();
@@ -18,13 +20,22 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
      return <h2>{error}</h2>
  }
 
+// /restaurant/:id/menu
+ const handleClick = e => {
+   e.preventDefault();
+   history.push('/login')
+
+ }
+
 
   return (
-    <div className="restaurant-page">
-        {props.restaurants.map(restaurant => {
-          return <RestaurantCard 
-            key={restaurant.id} restaurant={restaurant}/>
-        })}
+    <div>
+      <div className="restaurant-page" onClick={handleClick}>
+          {props.restaurants.map(restaurant => {
+            return <RestaurantCard 
+              key={restaurant.id} restaurant={restaurant}/>
+          })}
+      </div>
     </div>
   );
 }

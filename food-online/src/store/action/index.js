@@ -36,3 +36,6 @@ export const getRestaurants = () =>  dispatch => {
         dispatch({ type: FETCH_RESTAURANTS_FAIL, payload: err.res })
       })
 };
+
+
+
