@@ -22,9 +22,11 @@ img{
 .restaurant-name{
     font-size: large;
     margin: 5px;
+    color: black;
 }
 
 .restaurant-desc{
     margin: 5px;
     text-align: center;
+    color: black;
 }

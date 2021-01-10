@@ -5,11 +5,14 @@ import {
   FETCH_RESTAURANTS_START,
   FETCH_RESTAURANTS_SUCCESS,
   FETCH_RESTAURANTS_FAIL,
+  FETCH_MENU_START,
+  FETCH_MENU_FAIL,
 
 } from "../action/index";
 
 const initialState = {
   restaurants: [],
+  menu: [],
   isFetching: false,
   errors: "",
   loggedIn: false,
@@ -56,6 +59,19 @@ export const reducer = (state = initialState, action) => {
       };
 
     case FETCH_RESTAURANTS_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        errors: action.payload
+      };
+
+    case FETCH_MENU_START:
+      return {
+        ...state,
+        isFetching: false,
+        menu: action.payload
+      };
+    case FETCH_MENU_FAIL:
       return {
         ...state,
         isFetching: false,
