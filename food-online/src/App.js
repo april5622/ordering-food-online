@@ -7,6 +7,7 @@ import LoginPage from "./components/LoginPage";
 import Navigation from "./components/Navigation";
 import ShoppingCart from "./components/ShoppingCart";
 import RegisterPage  from "./components/RegisterPage";
+import MenuPage from "./components/Menu/MenuPage";
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
       </Route>
 
       {/* menu for that specific restaurant */}
-      {/* <Route path="restaurant/:id/menu">
+      <Route path="restaurant/:id">
         <MenuPage/>
-      </Route> */}
+      </Route>
 
       <Route path="/login">
         <LoginPage/>

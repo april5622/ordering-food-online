@@ -36,7 +36,8 @@ function LoginPage(props) {
             })
             .catch(err => {
                 console.log(err)
-            }); 
+            });
+        history.push('/') 
     };
 
 
