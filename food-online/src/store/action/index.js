@@ -10,7 +10,6 @@ export const FETCH_MENU_START = "FETCH_MENU_START";
 export const FETCH_MENU_FAIL = "FETCH_MENU_FAIL"
 
 
-
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN_START });
   axiosWithAuth()
@@ -40,16 +39,17 @@ export const getRestaurants = () =>  dispatch => {
 };
 
 
-export const getMenuByRestId = () => {
+export const getMenuByRestId = () => dispatch => {
   dispatch({ type: FETCH_MENU_START });
   axiosWithAuth()
-    .get('/menu')
+    // .get(`/menu/${id}`)
+    .get("/menu")
     .then(res => {
       console.log(res)
       dispatch({ type: FETCH_MENU_START, payload: res.data})
     })
     .catch(err => {
       console.log(err)
-      dispatch({ type: FETCH_MENU_FAIL, payload: res.data})
+      dispatch({ type: FETCH_MENU_FAIL, payload: err.res})
     })
 }

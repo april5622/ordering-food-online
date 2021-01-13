@@ -38,7 +38,7 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
               key={restaurant.id} restaurant={restaurant}/>
           })} */}
           {props.restaurants.map(restaurant => (
-            <Link key={restaurant.id} to={`/restaurants/${props.id}`}>
+            <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`}>
                 <RestaurantCard restaurant={restaurant}/>
             </Link>
           ))}

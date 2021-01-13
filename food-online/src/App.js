@@ -24,8 +24,8 @@ function App() {
       </Route>
 
       {/* menu for that specific restaurant */}
-      <Route path="restaurant/:id">
-        <MenuPage/>
+      <Route path="restaurants/:id">
+        <MenuPage />
       </Route>
 
       <Route path="/login">
