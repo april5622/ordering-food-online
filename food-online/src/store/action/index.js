@@ -7,7 +7,8 @@ export const FETCH_RESTAURANTS_START = "FETCH_RESTAURANTS_START";
 export const FETCH_RESTAURANTS_SUCCESS = "FETCH_RESTAURANTS_SUCCESS";
 export const FETCH_RESTAURANTS_FAIL = "FETCH_RESTAURANTS_FAIL";
 export const FETCH_MENU_START = "FETCH_MENU_START";
-export const FETCH_MENU_FAIL = "FETCH_MENU_FAIL"
+export const FETCH_MENU_SUCCESS = "FETCH_MENU_SUCCESS";
+export const FETCH_MENU_FAIL = "FETCH_MENU_FAIL";
 
 
 export const login = credentials => dispatch => {
@@ -45,8 +46,8 @@ export const getMenuByRestId = () => dispatch => {
     // .get(`/menu/${id}`)
     .get("/menu")
     .then(res => {
-      console.log(res)
-      dispatch({ type: FETCH_MENU_START, payload: res.data})
+      console.log("Menu res",res)
+      dispatch({ type: FETCH_MENU_SUCCESS, payload: res.data})
     })
     .catch(err => {
       console.log(err)

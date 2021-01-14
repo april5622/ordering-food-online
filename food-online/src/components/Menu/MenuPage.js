@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { getMenuByRestId } from "../../store/action/index";
 import { connect } from "react-redux";
 import MenuCard from "./MenuCard";
+import "../../css/Menu.css";
 
-function MenuPage(props, getMenuByRestId, isFetching, error) {
+const MenuPage = (props, getMenuByRestId, isFetching, error) => {
 
     useEffect(()=> {
         props.getMenuByRestId();
@@ -18,8 +19,7 @@ function MenuPage(props, getMenuByRestId, isFetching, error) {
      }
 
     return (
-        <div>
-            <h3>MENU PAGE</h3>
+        <div className="menu-page">
             {props.menu.map(item => {
                return <MenuCard key={item.id} item={item}/>
             })}
@@ -35,7 +35,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getMenuByRestId})(MenuPage);
+export default connect(mapStateToProps,{getMenuByRestId})(MenuPage);
 
 //export default MenuPage
 

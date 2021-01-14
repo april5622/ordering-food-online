@@ -9,6 +9,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import RegisterPage  from "./components/RegisterPage";
 import MenuPage from "./components/Menu/MenuPage";
 
+
 function App() {
   return (
     <div className="App">
@@ -24,8 +25,8 @@ function App() {
       </Route>
 
       {/* menu for that specific restaurant */}
-      <Route path="restaurants/:id">
-        <MenuPage />
+      <Route path="/restaurants/:id">
+        <MenuPage/>
       </Route>
 
       <Route path="/login">
