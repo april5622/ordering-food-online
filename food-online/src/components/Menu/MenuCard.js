@@ -1,9 +1,17 @@
-import React from 'react'
+import React from 'react';
+import "../../css/Menu.css";
 
-function MenuCard() {
+const MenuCard = (props) => {
     return (
-        <div>
-            <h4>MENU CARD</h4>
+        <div className="menu-cards">
+            <p>{props.item.dish}</p>
+            <p>{props.item.price}</p>
+            <p>{props.item.description}</p>
+
+            <div className="btn">
+                <button>Add to Cart</button>
+            </div>
+            
         </div>
     )
 }

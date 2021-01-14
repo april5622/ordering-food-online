@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getRestaurants } from "../../store/action/index";
 import RestaurantCard from "./RestaurantCard";
 import { connect } from "react-redux";
@@ -7,7 +7,6 @@ import "../../css/Restaurants.css";
 
 
 const RestaurantPage = (props, getRestaurants, isFetching, error) => {
-  const history = useHistory();
 
   useEffect(()=> {
     props.getRestaurants();
@@ -38,7 +37,7 @@ const RestaurantPage = (props, getRestaurants, isFetching, error) => {
               key={restaurant.id} restaurant={restaurant}/>
           })} */}
           {props.restaurants.map(restaurant => (
-            <Link key={restaurant.id} to={`/restaurants/${props.id}`}>
+            <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`}>
                 <RestaurantCard restaurant={restaurant}/>
             </Link>
           ))}
