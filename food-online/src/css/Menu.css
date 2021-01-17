@@ -21,13 +21,19 @@
     0 2px 4px rgba(0, 0, 0, 0.24);
 }
 
+.menu-img {
+    width:  385px;
+    height: 290px;
+    object-fit: cover;
+}
+
 p{
-    border: solid green;
+    /* border: solid green; */
     margin: 2px;
 }
 
 .btn{
-    border: solid red;
+    /* border: solid red; */
     display: inline-block;
     width: auto;
     

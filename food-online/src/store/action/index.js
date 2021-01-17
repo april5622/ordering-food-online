@@ -42,7 +42,6 @@ export const getRestaurants = () =>  dispatch => {
       })
 };
 
-
 export const getMenu = () => dispatch => {
   dispatch({ type: FETCH_MENU_START });
   axiosWithAuth()
