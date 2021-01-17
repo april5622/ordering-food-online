@@ -3,11 +3,14 @@ import { getMenuByRestId } from "../../store/action/index";
 import { connect } from "react-redux";
 import MenuCard from "./MenuCard";
 import "../../css/Menu.css";
+import { useRouteMatch } from 'react-router-dom';
 
 const MenuPage = (props, getMenuByRestId, isFetching, error) => {
+    const match = useRouteMatch();
 
     useEffect(()=> {
-        props.getMenuByRestId();
+        props.getMenuByRestId(match.params.id);
+        console.log("props", props)
      }, [getMenuByRestId]);
     
      if (isFetching) {
