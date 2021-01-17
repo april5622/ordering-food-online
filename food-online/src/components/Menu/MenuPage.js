@@ -10,7 +10,6 @@ const MenuPage = (props, getMenuByRestId, isFetching, error) => {
 
     useEffect(()=> {
         props.getMenuByRestId(match.params.id);
-        console.log("props", props)
      }, [getMenuByRestId]);
     
      if (isFetching) {
@@ -39,7 +38,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps,{getMenuByRestId})(MenuPage);
-
-//export default MenuPage
-
-// need to get specific restaurant id for the menu
