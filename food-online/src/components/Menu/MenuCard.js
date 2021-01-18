@@ -1,5 +1,7 @@
 import React from 'react';
+import  { AddCart } from "../../state/action/index";
 import "../../css/Menu.css";
+import { connect } from 'react-redux';
 
 const MenuCard = (props) => {
     return (
@@ -10,11 +12,17 @@ const MenuCard = (props) => {
             <p>{props.item.description}</p>
 
             <div className="btn">
-                <button>Add to Cart</button>
+                <button onClick={() => AddCart(item)}>Add to Cart</button>
             </div>
             
         </div>
     )
 }
 
-export default MenuCard
+function mapDispatchToProps(dispatch){
+    return {
+        AddCart: item=> dispatch(AddCart(item))
+    }
+}
+
+export default connect(mapDispatchToProps)(MenuCard)

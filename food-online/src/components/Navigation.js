@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from 'react-redux';
 import "../css/Navigation.css";
 
 const Navigation = (props) => {
@@ -7,9 +8,15 @@ const Navigation = (props) => {
     <div className="navigation">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/login">Login</NavLink>
-      <NavLink to="/cart">Cart{/* Cart <span>{cart.length}</span> */}</NavLink>
+      <NavLink to="/cart">CartCart <span>{props.cartItem}</span></NavLink>
     </div>
   );
 };
 
-export default Navigation;
+const mapStateToProps = state => {
+  return{
+    cartItem: state._reducer.cartItem
+  }
+}
+
+export default connect(mapStateToProps, null)(Navigation);
