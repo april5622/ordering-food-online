@@ -8,7 +8,7 @@ const Navigation = (props) => {
     <div className="navigation">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/login">Login</NavLink>
-      <NavLink to="/cart">CartCart <span>{props.cartItem}</span></NavLink>
+      <NavLink to="/cart">Cart <span>{props.cartItem}</span></NavLink>
     </div>
   );
 };

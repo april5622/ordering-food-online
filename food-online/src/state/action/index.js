@@ -15,6 +15,7 @@ export const FETCH_RESTAURANT_MENU_FAIL = "FETCH_RESTAURANT_MENU_FAIL";
 export const ADD_CART = "ADD_CART";
 export const UPDATE_CART = "UPDATE_CART";
 export const DELETE_CART = "DELETE_CART";
+export const GET_ALL_ITEM = "GET_ALL_ITEM";
 export const GET_QUANTITY = "GET_QUANTITY";
 export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
 export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
@@ -93,6 +94,13 @@ export function UpdateCart(payload){
 export function DeleteCart(payload){
   return {
     type: "DELETE_CART",
+    payload
+  }
+}
+
+export function GetAllItem(payload){
+  return{
+    type: "GET_ALL_ITEM",
     payload
   }
 }

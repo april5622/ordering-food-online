@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { DeleteCart, IncreaseQuantity, DecreaseQuantity } from "../../state/action/index";
 
 function ShoppingCart({ items, DeleteCart, IncreaseQuantity, DecreaseQuantity}){
+
     let listCart = [];
     let totalCart = 0;
 

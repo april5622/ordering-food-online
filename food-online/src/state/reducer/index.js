@@ -14,6 +14,7 @@ import {
   FETCH_RESTAURANT_MENU_FAIL,
   ADD_CART,
   DELETE_CART,
+  GET_ALL_ITEM,
   GET_QUANTITY,
   INCREASE_QUANTITY,
   DECREASE_QUANTITY
@@ -29,6 +30,7 @@ const initialState = {
   loggedIn: false,
   carts: [],
   cartItem: 0,
+  items: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -165,9 +167,15 @@ export const reducer = (state = initialState, action) => {
         })
       };
 
+    case GET_ALL_ITEM:
+      return {
+        ...state,
+        items: action.payload
+      };
+
     case GET_QUANTITY:
       return {
-        ...state
+        ...state,
       };
 
     case INCREASE_QUANTITY:

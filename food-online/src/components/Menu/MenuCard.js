@@ -19,10 +19,16 @@ const MenuCard = (props) => {
     )
 }
 
+const mapStateToProps = state =>{
+    return {
+         _products: state._reducer,
+       };
+}
+
 function mapDispatchToProps(dispatch){
     return {
         AddCart: item => dispatch(AddCart(item))
     }
 }
 
-export default connect(mapDispatchToProps)(MenuCard)
+export default connect(mapStateToProps, mapDispatchToProps)(MenuCard)
