@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getMenuByRestId } from "../../store/action/index";
+import { getMenuByRestId } from "../../state/action/index";
 import { connect } from "react-redux";
 import MenuCard from "./MenuCard";
 import "../../css/Menu.css";

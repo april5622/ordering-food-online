@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { getRestaurants } from "../../store/action/index";
+import { getRestaurants } from "../../state/action/index";
 import RestaurantCard from "./RestaurantCard";
 import { connect } from "react-redux";
 import "../../css/Restaurants.css";

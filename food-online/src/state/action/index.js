@@ -12,6 +12,13 @@ export const FETCH_MENU_FAIL = "FETCH_MENU_FAIL";
 export const FETCH_RESTAURANT_MENU_START = "FETCH_RESTAURANT_MENU_START";
 export const FETCH_RESTAURANT_MENU_SUCCESS = "FETCH_RESTAURANT_MENU_SUCCESS";
 export const FETCH_RESTAURANT_MENU_FAIL = "FETCH_RESTAURANT_MENU_FAIL";
+export const ADD_CART = "ADD_CART";
+export const UPDATE_CART = "UPDATE_CART";
+export const DELETE_CART = "DELETE_CART";
+export const GET_ALL_ITEM = "GET_ALL_ITEM";
+export const GET_QUANTITY = "GET_QUANTITY";
+export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
+export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 
 
 export const login = credentials => dispatch => {
@@ -70,4 +77,51 @@ export const getMenuByRestId = (restaurants_id) => dispatch => {
     })
 }
 
+export function AddCart(payload){
+  return {
+    type: "ADD_CART",
+    payload
+  }
+}
+
+export function UpdateCart(payload){
+  return {
+    type: "UPDATE_CART",
+    payload
+  } 
+}
+
+export function DeleteCart(payload){
+  return {
+    type: "DELETE_CART",
+    payload
+  }
+}
+
+export function GetAllItem(payload){
+  return{
+    type: "GET_ALL_ITEM",
+    payload
+  }
+}
+
+export function GetQuantity(){
+  return {
+    type: "GET_QUANTITY"
+  }
+}
+
+export function IncreaseQuantity(payload){
+  return{
+    type: "INCREASE_QUANTITY",
+    payload
+  }
+}
+
+export function DecreaseQuantity(payload){
+  return {
+    type: "DECREASE_QUANTITY",
+    payload
+  }
+}
 

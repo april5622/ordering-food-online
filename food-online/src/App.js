@@ -5,7 +5,7 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import LoginPage from "./components/LoginPage";
 import Navigation from "./components/Navigation";
-import ShoppingCart from "./components/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import RegisterPage  from "./components/RegisterPage";
 import MenuPage from "./components/Menu/MenuPage";
 

@@ -6,7 +6,7 @@ import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { reducer } from "./store/reducer";
+import { reducer } from "./state/reducer/index";
 const AppWithRouter = withRouter(App);
 const store = createStore(reducer, applyMiddleware(logger, thunk));
 
