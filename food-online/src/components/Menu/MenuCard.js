@@ -12,7 +12,7 @@ const MenuCard = (props) => {
             <p>{props.item.description}</p>
 
             <div className="btn">
-                <button onClick={() => AddCart(item)}>Add to Cart</button>
+                <button onClick={() => props.AddCart(props.item)}>Add to Cart</button>
             </div>
             
         </div>
@@ -21,7 +21,7 @@ const MenuCard = (props) => {
 
 function mapDispatchToProps(dispatch){
     return {
-        AddCart: item=> dispatch(AddCart(item))
+        AddCart: item => dispatch(AddCart(item))
     }
 }
 

@@ -15,7 +15,7 @@ const Navigation = (props) => {
 
 const mapStateToProps = state => {
   return{
-    cartItem: state._reducer.cartItem
+    cartItem: state.cartItem
   }
 }
 

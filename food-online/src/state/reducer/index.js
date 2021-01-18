@@ -121,38 +121,38 @@ export const reducer = (state = initialState, action) => {
       };
 
     case ADD_CART:
-      if(state.cartItem == 0){
+      if(state.cartItem==0){
         let cart = {
-          id: action.payload.id,
-          quantity: 1,
-          name: action.payload.name,
-          image: action.payload.image,
-          price: action.payload.price
-
+          id:action.payload.id,
+          quantity:1,
+          name:action.payload.name,
+          photo:action.payload.photo,
+          price:action.payload.price
+        } 
+          state.carts.push(cart); 
         }
-        state.carts.push(cart)
-      } else {
+      else{
         let check = false;
-        state.carts,map((item, key) => {
-          if(item.id == action.payload.id){
-            state.carts[key].quantity++;
-            check=true;
+        state.carts.map((item,key)=>{
+          if(item.id==action.payload.id){
+              state.carts[key].quantity++;
+              check=true;
+            }
+          });
+          if(!check){
+            let _cart = {
+                id:action.payload.id,
+                quantity:1,
+                name:action.payload.name,
+                photo:action.payload.photo,
+                price:action.payload.price
+            }
+            state.carts.push(_cart);
           }
-        });
-        if(!check){
-          let _cart = {
-            id: action.payload.id,
-            quantity: 1,
-            name: action.payload.name,
-            image: action.payload.image,
-            price: action.payload.price
-          }
-          state.carts.push(_cart);
         }
-      }
-      return {
-        ...state,
-        cartItem: state.cartItem + 1
+      return{
+          ...state,
+          cartItem:state.cartItem+1
       };
 
     case DELETE_CART:
@@ -194,8 +194,7 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-const Reducer = combineReducers({
+const ShopCart = combineReducers({
     _reducer: reducer
 });
-
-export default Reducer;
+export default ShopCart;
