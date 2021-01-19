@@ -6,20 +6,20 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
    
     let listCart = [];
     let totalCart = 0;
-    
+
     Object.keys(props.carts).forEach(function(item){
         totalCart += props.carts[item].quantity * props.carts[item].price;
         listCart.push(props.carts[item]);
     })
 
-    function totalPrice(price, tonggia){
-        return Number(price * tonggia).toLocaleString('en-US');
+    const totalPrice = (price, tonggia) => {
+        let currency = price
+        let new_price = Number(currency.replace(/[^0-9.-]+/g,""));
+        return Number(new_price * tonggia).toLocaleString('en-US');
     }
 
     return (
-        <div>
-            <h1>Shopping Cart</h1>
-
+        <div className="shoppingcart-page">
             <div className="row">
             <div className="col-md-12">
             <table className="table">
@@ -38,16 +38,16 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
                     listCart.map((item,key)=>{
                         return(
                             <tr key={key}>    
-                            <td><i className="badge badge-danger" onClick={()=>DeleteCart(key)}>X</i></td>
+                            <td><button className="badge badge-danger" onClick={()=>DeleteCart(key)}>X</button></td>
                             <td>{item.name}</td>
                             <td><img src={item.photo} style={{width:'100px',height:'80px'}}/></td>
-                            <td>{item.price} $</td>
+                            <td>{item.price}</td>
                             <td>
-                                    <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>DecreaseQuantity(key)}>-</span>
+                                    <button className="btn btn-primary"  onClick={()=>DecreaseQuantity(key)}>-</button>
                                     <span className="btn btn-info">{item.quantity}</span>
-                                    <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>IncreaseQuantity(key)}>+</span>
+                                    <button className="btn btn-primary" onClick={()=>IncreaseQuantity(key)}>+</button>
                             </td>
-                            <td>{ totalPrice(item.price,item.quantity)} $</td>
+                            <td>${totalPrice(item.price,item.quantity)}</td>
                         </tr>
                         )
                     })
@@ -55,8 +55,9 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
                 }
                 <tr>
                     <td colSpan="5">Total Carts</td>
-                    <td>{Number(totalCart).toLocaleString('en-US')} $</td>
+                    <td>${Number(totalCart).toLocaleString("en-US")}</td>
                 </tr>
+
                 </tbody>
               
             </table>
@@ -68,7 +69,7 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
 
 const mapStateToProps = state => {
     return {
-        // items: state._reducer,
+        props: state._reducer,
         carts: state.carts
 
     }
