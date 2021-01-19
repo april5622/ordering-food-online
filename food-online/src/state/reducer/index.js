@@ -30,7 +30,7 @@ const initialState = {
   loggedIn: false,
   carts: [],
   cartItem: 0,
-  items: []
+  dishes: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -170,7 +170,7 @@ export const reducer = (state = initialState, action) => {
     case GET_ALL_ITEM:
       return {
         ...state,
-        items: action.payload
+        dishes: action.payload
       };
 
     case GET_QUANTITY:

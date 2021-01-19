@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DeleteCart, IncreaseQuantity, DecreaseQuantity } from "../../state/action/index";
 
-function ShoppingCart({ items, DeleteCart, IncreaseQuantity, DecreaseQuantity}){
-
+const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => {
+   
     let listCart = [];
     let totalCart = 0;
-
-    Object.keys(items.carts).forEach(function(item){
-        totalCart += items.carts[item].quantity * items.carts[item].price;
-        listCart.push(items.carts[item]);
+    
+    Object.keys(props.carts).forEach(function(item){
+        totalCart += props.carts[item].quantity * props.carts[item].price;
+        listCart.push(props.carts[item]);
     })
 
     function totalPrice(price, tonggia){
@@ -40,7 +40,7 @@ function ShoppingCart({ items, DeleteCart, IncreaseQuantity, DecreaseQuantity}){
                             <tr key={key}>    
                             <td><i className="badge badge-danger" onClick={()=>DeleteCart(key)}>X</i></td>
                             <td>{item.name}</td>
-                            <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
+                            <td><img src={item.photo} style={{width:'100px',height:'80px'}}/></td>
                             <td>{item.price} $</td>
                             <td>
                                     <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>DecreaseQuantity(key)}>-</span>
@@ -68,7 +68,9 @@ function ShoppingCart({ items, DeleteCart, IncreaseQuantity, DecreaseQuantity}){
 
 const mapStateToProps = state => {
     return {
-        items: state._reducer
+        // items: state._reducer,
+        carts: state.carts
+
     }
 }
 

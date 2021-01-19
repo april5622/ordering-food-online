@@ -1,6 +1,11 @@
 .restaurant-page{
-    /* border: solid green; */
+    width: auto;
     display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 10px;
+
 }
 
 img {
