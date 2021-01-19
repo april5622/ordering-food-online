@@ -21,7 +21,7 @@ const MenuCard = (props) => {
 
 const mapStateToProps = state =>{
     return {
-         _products: state._reducer,
+        dishes: state._reducer,
        };
 }
 
