@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { DeleteCart, IncreaseQuantity, DecreaseQuantity } from "../../state/action/index";
+import "../../css/ShoppingCart.css";
 
 const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => {
    
@@ -17,6 +18,8 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
         let new_price = Number(currency.replace(/[^0-9.-]+/g,""));
         return Number(new_price * tonggia).toLocaleString('en-US');
     }
+
+    console.log("listcart",listCart)
 
     return (
         <div className="shoppingcart-page">
@@ -36,16 +39,17 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
                 <tbody>
                 {
                     listCart.map((item,key)=>{
+                        console.log("itemdish", item.dish)
                         return(
                             <tr key={key}>    
-                            <td><button className="badge badge-danger" onClick={()=>DeleteCart(key)}>X</button></td>
-                            <td>{item.name}</td>
+                            <td><button className="btn-delete" onClick={()=>DeleteCart(key)}>X</button></td>
+                            <td className="dish">{item.dish}</td>
                             <td><img src={item.photo} style={{width:'100px',height:'80px'}}/></td>
                             <td>{item.price}</td>
                             <td>
-                                    <button className="btn btn-primary"  onClick={()=>DecreaseQuantity(key)}>-</button>
-                                    <span className="btn btn-info">{item.quantity}</span>
-                                    <button className="btn btn-primary" onClick={()=>IncreaseQuantity(key)}>+</button>
+                                    <button className="btn-quantity"  onClick={()=>DecreaseQuantity(key)}>-</button>
+                                    <span className="btn-span">{item.quantity}</span>
+                                    <button className="btn-quantity" onClick={()=>IncreaseQuantity(key)}>+</button>
                             </td>
                             <td>${totalPrice(item.price,item.quantity)}</td>
                         </tr>
@@ -66,6 +70,7 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
         </div>
     )
 }
+
 
 const mapStateToProps = state => {
     return {

@@ -1,0 +1,44 @@
+thead{
+    border: solid red;
+}
+
+.row {
+    border: solid green;
+}
+
+tbody{
+    border: solid blue;
+    margin: 10px;
+
+}
+
+td{
+    border: solid yellow;
+    margin: 10px;
+    padding: 50px;
+    width: auto;
+    
+
+}
+
+.dish{
+    color: black;
+    border: solid orange;
+
+}
+
+.btn-delete{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn-quantity{
+    padding: 10px;
+    margin: 5px;
+}
+
+.btn-span{
+    padding: 10px;
+}
+
+

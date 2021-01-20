@@ -127,7 +127,7 @@ export const reducer = (state = initialState, action) => {
         let cart = {
           id:action.payload.id,
           quantity:1,
-          name:action.payload.name,
+          dish:action.payload.dish,
           photo:action.payload.photo,
           price:action.payload.price
         } 
@@ -145,7 +145,7 @@ export const reducer = (state = initialState, action) => {
             let _cart = {
                 id:action.payload.id,
                 quantity:1,
-                name:action.payload.name,
+                dish:action.payload.dish,
                 photo:action.payload.photo,
                 price:action.payload.price
             }
