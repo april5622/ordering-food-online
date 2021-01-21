@@ -19,7 +19,11 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
         return Number(new_price * tonggia).toLocaleString('en-US');
     }
 
-    console.log("listcart",listCart)
+    console.log("tc", Number(totalCart).toLocaleString("en-US")
+    .replace(/[^0-9\.]+/g, "")
+    );
+
+    console.log("rc2", Number(totalCart).toLocaleString("en-US").replace('$','').replace(/[^0-9.-]+/g,""))
 
     return (
         <div className="shoppingcart-page">
@@ -39,17 +43,16 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
                 <tbody>
                 {
                     listCart.map((item,key)=>{
-                        console.log("itemdish", item.dish)
                         return(
                             <tr key={key}>    
-                            <td><button className="btn-delete" onClick={()=>DeleteCart(key)}>X</button></td>
+                            <td><button className="btn-delete" onClick={()=>props.DeleteCart(key)}>X</button></td>
                             <td className="dish">{item.dish}</td>
                             <td><img src={item.photo} style={{width:'100px',height:'80px'}}/></td>
                             <td>{item.price}</td>
                             <td>
-                                    <button className="btn-quantity"  onClick={()=>DecreaseQuantity(key)}>-</button>
+                                    <button className="btn-quantity"  onClick={()=>props.DecreaseQuantity(key)}>-</button>
                                     <span className="btn-span">{item.quantity}</span>
-                                    <button className="btn-quantity" onClick={()=>IncreaseQuantity(key)}>+</button>
+                                    <button className="btn-quantity" onClick={()=>props.IncreaseQuantity(key)}>+</button>
                             </td>
                             <td>${totalPrice(item.price,item.quantity)}</td>
                         </tr>
@@ -59,7 +62,7 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
                 }
                 <tr>
                     <td colSpan="5">Total Carts</td>
-                    <td>${Number(totalCart).toLocaleString("en-US")}</td>
+                    <td>${Number(totalCart).toLocaleString("en-US").replace(/[^0-9.-]+/g,"")}</td>
                 </tr>
 
                 </tbody>
@@ -75,9 +78,9 @@ const ShoppingCart = (props, DeleteCart, IncreaseQuantity, DecreaseQuantity) => 
 const mapStateToProps = state => {
     return {
         props: state._reducer,
-        carts: state.carts
+        carts: state.carts,
 
     }
 }
 
-export default connect(mapStateToProps,{DeleteCart, IncreaseQuantity, DecreaseQuantity})(ShoppingCart);
+export default connect(mapStateToProps,{ DeleteCart, IncreaseQuantity, DecreaseQuantity })(ShoppingCart);

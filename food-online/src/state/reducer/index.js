@@ -17,7 +17,7 @@ import {
   GET_ALL_ITEM,
   GET_QUANTITY,
   INCREASE_QUANTITY,
-  DECREASE_QUANTITY
+  DECREASE_QUANTITY,
 
 
 } from "../action/index";

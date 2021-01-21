@@ -4,12 +4,7 @@ thead{
 
 .row {
     border: solid green;
-}
-
-tbody{
-    border: solid blue;
-    margin: 10px;
-
+    width: 100%;
 }
 
 td{
@@ -18,13 +13,7 @@ td{
     padding: 50px;
     width: auto;
     
-
-}
-
-.dish{
-    color: black;
-    border: solid orange;
-
+    
 }
 
 .btn-delete{
